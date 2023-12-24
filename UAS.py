@@ -7,16 +7,17 @@ from sklearn.cluster import KMeans
 from sklearn import datasets
 
 
-winequalityred = datasets.load_winequalityred()
+winequality = datasets.load_winequality()
 
-x=pd.DataFrame(winequalityred.csv)
+x=pd.DataFrame(winequality.csv)
 
 st.write('STREAMLIT IRIS (ANDHIKA SF)')
 
-x.columns=['Sepal_Length','Sepal_width','Petal_Length','Petal_width']
+x.columns=['fixed acidity','volatile acidity','citric acid','residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide'
+           , 'density', 'pH', 'sulphates', 'alcohol', 'quality']
 
-y=pd.DataFrame(winequalityred.target)
-y.columns=["Targets"]
+y=pd.DataFrame(winequality.target)
+y.columns=["quality"]
 
 nb=st.slider("Clusters",min_value=2,max_value=x.shape[0],value=2)
 
