@@ -12,8 +12,7 @@ df = pd.read_csv("winequality.csv")
 
 st.write('STREAMLIT IRIS (ANDHIKA SF)')
 
-x.columns=['fixed acidity','volatile acidity','citric acid','residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide'
-           , 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+x.columns=['Acidity','Sugar' ,'Alcohol']
 
 y=pd.DataFrame(winequality.target)
 y.columns=["quality"]
