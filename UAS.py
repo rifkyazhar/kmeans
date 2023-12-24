@@ -7,7 +7,7 @@ from sklearn.cluster import KMeans
 from sklearn import datasets
 
 
-winequality = datasets.load_winequality.csv()
+winequality = df.load_winequality()
 
 model = pickle.load(open('Car.sav', 'rb'))
 
