@@ -14,7 +14,7 @@ def main():
     st.write('Menggunakan Streamlit')
 
     # Load dataset
-    df = load_data()
+    df = load_data('winequality.csv')
 
     # Display dataset
     st.subheader('winequality.csv')
