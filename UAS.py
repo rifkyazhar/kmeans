@@ -2,20 +2,6 @@ import streamlit as st
 import pandas as pd
 from sklearn.cluster import KMeans
 
-try:
-    # Blok kode yang mungkin menyebabkan kesalahan
-    # ...
-    # ...
-
-except Exception as e:
-    # Tangkap kesalahan dan tampilkan pesan kesalahan yang aman
-    st.error("Aplikasi mengalami kesalahan. Silakan cek log untuk informasi lebih lanjut.")
-    # Catat pesan kesalahan lengkap di log
-    st.caching.clear_cache()  # Bersihkan cache jika diperlukan
-    st.experimental_rerun()  # Rerun aplikasi untuk menghindari kesalahan berulang
-
-
-
 # Load dataset
 @st.cache
 def load_data():
