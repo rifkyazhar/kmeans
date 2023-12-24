@@ -7,9 +7,8 @@ from sklearn.cluster import KMeans
 from sklearn import datasets
 
 
-winequality = df.load_winequality()
+df = pd.read_csv("winequality.csv")
 
-model = pickle.load(open('Car.sav', 'rb'))
 
 st.write('STREAMLIT IRIS (ANDHIKA SF)')
 
