@@ -14,7 +14,7 @@ def main():
     st.write('Menggunakan Streamlit')
 
     # Load dataset
-    df = load_data('winequality.csv')
+    df = load_data()
 
     # Display dataset
     st.subheader('winequality.csv')
@@ -28,5 +28,5 @@ def main():
     df['Cluster'] = kmeans.labels_
     st.write(df)
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     main()
