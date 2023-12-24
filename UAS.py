@@ -11,13 +11,13 @@ def load_data():
 # Main function
 def main():
     st.title('Aplikasi Data Mining dengan Metode K-Means')
-    st.write('Menggunakan Streamlit')
+    st.write('df')
 
     # Load dataset
     df = load_data()
 
     # Display dataset
-    st.subheader('winequality.csv')
+    st.subheader('winequality')
     st.write(df)
 
     # K-Means clustering
