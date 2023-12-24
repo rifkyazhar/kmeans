@@ -14,19 +14,19 @@ def main():
     st.write('Menggunakan Streamlit')
 
     # Load dataset
-    data = load_data()
+    df = load_data('winequality.csv')
 
     # Display dataset
-    st.subheader('Dataset')
-    st.write(data)
+    st.subheader('winequality.csv')
+    st.write(df)
 
     # K-Means clustering
     st.subheader('Hasil Clustering dengan K-Means')
     k = st.slider('Jumlah Cluster (K)', 2, 10, 3)
     kmeans = KMeans(n_clusters=k)
-    kmeans.fit(data)
-    data['Cluster'] = kmeans.labels_
-    st.write(data)
+    kmeans.fit(df)
+    df['Cluster'] = kmeans.labels_
+    st.write(df)
 
 if __name__ == '_main_':
     main()
