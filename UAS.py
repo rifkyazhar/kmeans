@@ -1,33 +1,32 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-import sklearn.metrics as sm
-import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
-from sklearn import datasets
 
-df = pd.read_csv("winequality.csv")
+# Load dataset
+@st.cache
+def load_data():
+    data = pd.read_csv('winequality.csv')
+    return data
 
-st.write('STREAMLIT Wine (M)')
+# Main function
+def main():
+    st.title('Aplikasi Data Mining dengan Metode K-Means')
+    st.write('Menggunakan Streamlit')
 
-x.columns=['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar',
-       'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density',
-       'pH', 'sulphates', 'alcohol', 'quality']
+    # Load dataset
+    data = load_data()
 
-y=pd.DataFrame(winequality.target)
-y.columns=["quality"]
+    # Display dataset
+    st.subheader('Dataset')
+    st.write(data)
 
-nb=st.slider("Clusters",min_value=2,max_value=x.shape[0],value=2)
+    # K-Means clustering
+    st.subheader('Hasil Clustering dengan K-Means')
+    k = st.slider('Jumlah Cluster (K)', 2, 10, 3)
+    kmeans = KMeans(n_clusters=k)
+    kmeans.fit(data)
+    data['Cluster'] = kmeans.labels_
+    st.write(data)
 
-st.dataframe(x.head(nb))
-
-nbclust=st.slider("Visualisasi model KMeans clustering",min_value=1,max_value=4,value=2)
-model=KMeans(n_clusters=nbclust)
-model.fit(x)
-
-fig, ax=plt.subplots()
-
-colormap=np.array(['Red','green','blue',"black"])
-plt.scatter(x.Petal_Length, x.Petal_width,c=colormap[y.Targets],s=40)
-plt.scatter(x.Petal_Length, x.Petal_width,c=colormap[model.labels_],s=40)
-st.pyplot(fig)
+if __name__ == '_main_':
+    main()
