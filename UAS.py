@@ -10,7 +10,9 @@ df = pd.read_csv("winequality.csv")
 
 st.write('STREAMLIT Wine (M)')
 
-x.columns=['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+x.columns=['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar',
+       'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density',
+       'pH', 'sulphates', 'alcohol', 'quality']
 
 y=pd.DataFrame(winequality.target)
 y.columns=["quality"]
