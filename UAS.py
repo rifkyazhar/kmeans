@@ -30,11 +30,8 @@ def visualize_data(data, kmeans):
 
     st.pyplot(fig)
 
-def _init_(self, k=3, max_iter=100):
-        self.k = k
-        self.max_iter = max_iter
 
-    def fit(self, X):
+ def fit(self, X):
         self.centroids = self._initialize_centroids(X)
 
         for _ in range(self.max_iter):
