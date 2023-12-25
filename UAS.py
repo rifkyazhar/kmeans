@@ -30,8 +30,7 @@ def visualize_data(data, kmeans):
 
     st.pyplot(fig)
 
-class KMeans:
-    def _init_(self, k=3, max_iter=100):
+def _init_(self, k=3, max_iter=100):
         self.k = k
         self.max_iter = max_iter
 
