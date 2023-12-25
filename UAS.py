@@ -1,33 +1,27 @@
 import streamlit as st
-import pandas as pd
+import numpy as np
 from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
 
-# Load dataset
-@st.cache
-def load_data():
-    data = pd.read_csv('winequality.csv')
-    return data
+# Algoritma K-means
+def kmeans_algorithm(data, k, num_iterations):
+    kmeans = KMeans(n_clusters=k, random_state=42, max_iter=num_iterations)
+    kmeans.fit(data)
+    return kmeans
 
-# Main function
-def main():
-    st.title('Aplikasi Data Mining dengan Metode K-Means')
-    st.write('df')
+# Visualisasi data
+def visualize_data(data, kmeans):
+    centroids = kmeans.cluster_centers_
+    labels = kmeans.labels_
 
-    # Load dataset
-    df = load_data()
+    fig, ax = plt.subplots()
 
-    # Display dataset
-    st.subheader('winequality')
-    st.write(df)
+    for i in range(k):
+        xs = data[labels == i, 0]
+        ys = data[labels == i, 1]
+        plt.scatter(xs, ys, label=f'Cluster {i + 1}')
 
-    # K-Means clustering
-    st.subheader('Hasil Clustering dengan K-Means')
-    k = st.slider('Jumlah Cluster (K)', 2, 10, 3)
-    kmeans = KMeans(n_clusters=k)
-    kmeans.fit(df)
-    df['Cluster'] = kmeans.labels_
-    st.write(df)
-
-if __name__ == '__main__':
-    main()
-    
+    plt.scatter(centroids[:, 0], centroids[:, 1], s=100, c='yellow', label='Centroids')
+    plt.title('K-means Clustering')
+    plt.xlabel('Scaled Annual Income')
+    plt.ylabel…
