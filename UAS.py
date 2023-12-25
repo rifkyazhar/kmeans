@@ -31,7 +31,7 @@ def visualize_data(data, kmeans):
     st.pyplot(fig)
 
 # Aplikasi utama
-st.title('Aplikasi K-means Clustering')
+st.title('K-means Clustering')
 
 data = np.random.rand(500, 2)
 k = st.slider('Jumlah cluster', 2, 10, 5)
