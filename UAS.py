@@ -24,4 +24,19 @@ def visualize_data(data, kmeans):
     plt.scatter(centroids[:, 0], centroids[:, 1], s=100, c='yellow', label='Centroids')
     plt.title('K-means Clustering')
     plt.xlabel('Scaled Annual Income')
-    plt.ylabel…
+    plt.ylabel('Scaled Spending Score')
+    plt.legend()
+    plt.show()
+
+    st.pyplot(fig)
+
+# Aplikasi utama
+st.title('Aplikasi K-means Clustering')
+
+data = np.random.rand(500, 2)
+k = st.slider('Jumlah cluster', 2, 10, 5)
+num_iterations = st.slider('Jumlah iterasi', 10, 100, 50)
+
+if st.button('Lakukan Clustering'):
+    kmeans = kmeans_algorithm(data, k, num_iterations)
+    visualize_data(data, kmeans)
