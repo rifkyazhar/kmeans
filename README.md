@@ -1,8 +1,8 @@
 # Laporan Proyek Machine Learning
 
-### Nama : M Daffa Alfikri
+### Nama : Rifky Azhar Prayoga
 
-### Nim : 211351076
+### Nim : 211351124
 
 ### Kelas : IF Pagi A
 
